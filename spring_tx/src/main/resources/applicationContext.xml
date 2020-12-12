@@ -10,6 +10,7 @@
     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 ">
 
+    <!--    加载外部文件-->
     <context:property-placeholder location="jdbc.properties" />
 
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -44,6 +45,6 @@
     </tx:advice>
     <!--配饰事务的aop织入-->
     <aop:config>
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.kxgz.service.impl.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.kxgz.service.impl.*.*(..))" />
     </aop:config>
 </beans>

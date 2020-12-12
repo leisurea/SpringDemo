@@ -1,16 +1,20 @@
 package cn.kxgz.dao.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import cn.kxgz.dao.AccountDao;
 
+@Repository("accountDao")
 public class AccountDaoImpl implements AccountDao {
 
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+//    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+//        this.jdbcTemplate = jdbcTemplate;
+//    }
 
 
     @Override

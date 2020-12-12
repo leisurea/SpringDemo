@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="tomtom">
+    <output-path>$PROJECT_DIR$/out/artifacts/tomtom</output-path>
+    <root id="root">
+      <element id="dir-copy" path="$PROJECT_DIR$/spring_mvc/src/main/webapp" />
+    </root>
+  </artifact>
+</component>
