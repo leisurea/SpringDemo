@@ -8,11 +8,11 @@ public class ProxyTest {
 
     public static void main(String[] args) {
 
-        Target target = new Target();
-        Advice power = new Advice();
+        final Target target = new Target();
+        final Advice power = new Advice();
 
         TargetInterface proxyInstance = (TargetInterface) Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), new InvocationHandler() {
-            @Override
+//            @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 power.before();
                 Object invoke = method.invoke(target, args);
