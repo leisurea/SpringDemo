@@ -2,6 +2,8 @@ package cn.kxgz.web;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import java.io.IOException;
 
@@ -21,7 +23,9 @@ public class UserServlet extends HttpServlet {
 //        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
 //        req.getServletContext()
         ServletContext servletContext = this.getServletContext();
-        ApplicationContext app = (ApplicationContext) servletContext.getAttribute("app");
+//        ApplicationContext app = (ApplicationContext) servletContext.getAttribute("app");
+//        ApplicationContext app = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+        ApplicationContext app = WebApplicationContextUtils.getWebApplicationContext(servletContext);
         UserService userService = app.getBean(UserService.class);
         userService.save();
 

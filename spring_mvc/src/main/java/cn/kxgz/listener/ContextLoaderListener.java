@@ -11,10 +11,13 @@ public class ContextLoaderListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
-        //将spring的应用上下文对象存储岛ServletContext域中
         ServletContext servletContext = sce.getServletContext();
-        servletContext.setAttribute("app", servletContext);
+
+        //读取web.xml配置的全局参数
+//        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext app = new ClassPathXmlApplicationContext(servletContext.getInitParameter("contextConfigLocation"));
+        //将spring的应用上下文对象存储岛ServletContext域中
+        servletContext.setAttribute("app", app);
         System.out.println("servletContext 容器创建完毕！");
 
     }
