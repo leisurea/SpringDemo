@@ -79,5 +79,14 @@ public class UserController {
         return json;
     }
 
+    @RequestMapping(value = "/quick9")
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public User save9() throws JsonProcessingException {
+        User user = new User();
+        user.setAge(18);
+        user.setName("空虚公子");
+        return user;
+    }
+
 
 }
