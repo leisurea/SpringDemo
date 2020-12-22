@@ -5,16 +5,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.kxgz.model.User;
+import cn.kxgz.model.VO;
 
 @Controller
 @RequestMapping("/user")
@@ -73,7 +78,7 @@ public class UserController {
     public String save8() throws JsonProcessingException {
         User user = new User();
         user.setAge(18);
-        user.setName("空虚公子");
+        user.setUsername("空虚公子");
         ObjectMapper objectMapper = new ObjectMapper();
         String json = objectMapper.writeValueAsString(user);
         return json;
@@ -84,8 +89,43 @@ public class UserController {
     public User save9() throws JsonProcessingException {
         User user = new User();
         user.setAge(18);
-        user.setName("空虚公子");
+        user.setUsername("空虚公子");
         return user;
+    }
+
+    @RequestMapping(value = "/quick11")
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public User save11(String username, int age) throws JsonProcessingException {
+        User user = new User();
+        user.setAge(age);
+        user.setUsername(username);
+        System.out.println(user);
+        return user;
+    }
+
+    @RequestMapping(value = "/quick12")
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public User save12(User user) throws JsonProcessingException {
+        //字段需要对的上，并且需要set方法
+        return user;
+    }
+
+    @RequestMapping(value = "/quick13")
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public List<String> save13(String[] strs) throws JsonProcessingException {
+        return Arrays.asList(strs);
+    }
+
+    @RequestMapping(value = "/quick14")
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public void save14(VO vo) {
+        System.out.println(vo);
+    }
+
+    @RequestMapping(value = "/quick15",method = RequestMethod.POST)
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public void save15(@RequestBody List<User> userList) {
+        System.out.println(userList);
     }
 
 

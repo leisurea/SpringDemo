@@ -12,4 +12,5 @@
 
     <!--    默认底层继承json转换器-->
     <mvc:annotation-driven />
+    <mvc:resources mapping="/js/**" location="/js/"/>
 </beans>
