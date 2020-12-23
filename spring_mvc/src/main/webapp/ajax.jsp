@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Title</title>
-    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"/>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
     <script>
         var userList = new Array();
         userList.push({username:"空虚公子", age:18});
@@ -10,11 +10,11 @@
 
         $.ajax({
             type:"POST",
-            url:"${pageContext.request.contextPath}/success.jsp",
+            url:"${pageContext.request.contextPath}/user/quick15",
             data:JSON.stringify(userList),
             contentType:"application/json;charset=utf-8",
             // method:"get",
-            // dataType:"text",
+            dataType:"json",
             success:function (data){
                 alert(data+"success");
             },

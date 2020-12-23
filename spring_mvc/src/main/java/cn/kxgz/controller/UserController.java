@@ -5,14 +5,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -68,7 +74,7 @@ public class UserController {
 
     @RequestMapping(value = "/quick7")
     @ResponseBody()//不要进行页面跳转，直接返回字符串
-    public String save7()  {
+    public String save7() {
         return "空虚公子ggg";
     }
 
@@ -122,10 +128,44 @@ public class UserController {
         System.out.println(vo);
     }
 
-    @RequestMapping(value = "/quick15",method = RequestMethod.POST)
+    @RequestMapping(value = "/quick15", method = RequestMethod.POST)
     @ResponseBody()//不要进行页面跳转，直接返回字符串
-    public void save15(@RequestBody List<User> userList) {
+    public List<User> save15(@RequestBody List<User> userList) {
         System.out.println(userList);
+        return userList;
+    }
+
+    @RequestMapping(value = "/quick16")
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public String save16(@RequestParam(value = "name", required = true/*是否需要包含该参数*/, defaultValue = "空虚公子")/*将name映射成username*/ String username) {
+        System.out.println(username);
+        return username;
+    }
+
+    @GetMapping(value = "/quick17/{username}")//value跟地址的username必须一致
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public String save17(@PathVariable(value = "username") String username) {
+        System.out.println(username);
+        return username;
+    }
+
+    @RequestMapping(value = "/quick18")
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public String save17(Date date) {
+        System.out.println(date);
+        return date.toString();
+    }
+
+    @RequestMapping(value = "/quick20")
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public void save20(@RequestHeader(value = "User-Agent") String UA) {
+        System.out.println(UA);
+    }
+
+    @RequestMapping(value = "/quick21")
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public void save21(@CookieValue(value = "JSESSIONID") String jsID) {
+        System.out.println(jsID);
     }
 
 

@@ -11,6 +11,21 @@
     <context:component-scan base-package="cn.kxgz.controller" />
 
     <!--    默认底层继承json转换器-->
-    <mvc:annotation-driven />
-    <mvc:resources mapping="/js/**" location="/js/"/>
+    <mvc:annotation-driven conversion-service="conversionService" />
+    <!--    开放资源都访问权限-->
+    <!--    <mvc:resources mapping="/js/**" location="/js/" />-->
+    <!--    <mvc:resources mapping="/img/**" location="/img/" />-->
+
+    <!--    springmvc框架找不到资源的话就交给原始的容器（tomcat）来找-->
+    <mvc:default-servlet-handler />
+
+    <!--    声明转换器-->
+    <bean id="conversionService"
+        class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="cn.kxgz.conerter.DateConverter" />
+            </list>
+        </property>
+    </bean>
 </beans>
