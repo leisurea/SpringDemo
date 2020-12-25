@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
@@ -166,6 +168,26 @@ public class UserController {
     @ResponseBody()//不要进行页面跳转，直接返回字符串
     public void save21(@CookieValue(value = "JSESSIONID") String jsID) {
         System.out.println(jsID);
+    }
+
+    @RequestMapping(value = "/quick22")
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public void save22(String username, MultipartFile uploadFile) throws IOException {
+        System.out.println(username);
+        //获得上传文件的名称
+        String originalFilename = uploadFile.getOriginalFilename();
+        uploadFile.transferTo(new File("/users/leisure/desktop/" +username+".jpg"));
+    }
+
+    @RequestMapping(value = "/quick23")
+    @ResponseBody()//不要进行页面跳转，直接返回字符串
+    public void save23(String username, MultipartFile[] uploadFile) throws IOException {
+        System.out.println(username);
+        for (MultipartFile multipartFile : uploadFile) {
+            //获得上传文件的名称
+            String originalFilename = multipartFile.getOriginalFilename();
+            multipartFile.transferTo(new File("/users/leisure/desktop/" + originalFilename));
+        }
     }
 
 
