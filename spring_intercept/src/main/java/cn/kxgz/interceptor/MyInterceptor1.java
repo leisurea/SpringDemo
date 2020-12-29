@@ -12,12 +12,19 @@ public class MyInterceptor1 implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("preHandle...");
+        String param = request.getParameter("param");
+        if ("yes".equals(param)){
+            return true;
+        }else {
+            request.getRequestDispatcher("/error.jsp").forward(request,response);
+        }
         return true;//是否放行
     }
 
     //在目标方法执行之后 视图返回之前执行
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+       modelAndView.addObject("name","xianger");
         System.out.println("postHandle...");
     }
 

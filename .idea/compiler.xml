@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring_mvc" />
+        <module name="spring_test" />
         <module name="spring_tx_anno" />
         <module name="spring_intercept" />
         <module name="spring_tx" />
@@ -15,8 +16,9 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="spring_aop" target="1.5" />
-      <module name="spring_intercept" target="1.7" />
+      <module name="spring_intercept" target="8" />
       <module name="spring_mvc" target="8" />
+      <module name="spring_test" target="1.5" />
       <module name="spring_tx" target="8" />
       <module name="spring_tx_anno" target="8" />
     </bytecodeTargetLevel>
