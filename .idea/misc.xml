@@ -3,6 +3,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/spring_intercept" />
     <file type="web" url="file://$PROJECT_DIR$/spring_mvc" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_mytest" />
     <file type="web" url="file://$PROJECT_DIR$/spring_test" />
   </component>
   <component name="JavaScriptSettings">
@@ -17,6 +18,7 @@
         <option value="$PROJECT_DIR$/spring_mvc/pom.xml" />
         <option value="$PROJECT_DIR$/spring_intercept/pom.xml" />
         <option value="$PROJECT_DIR$/spring_test/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mytest/pom.xml" />
       </list>
     </option>
   </component>
