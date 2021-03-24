@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.kxgz.mapper.OrderMapper">
+
+    <resultMap id="orderMap" type="order">
+<!--手动指定字段与尸体属性的映射关系-->
+        <id column="oid" property="id"></id>
+        <result column="ordertime" property="ordertime"></result>
+        <result column="total" property="total"></result>
+<!--        <result column="uid" property="user.id"></result>-->
+<!--        <result column="username" property="user.username"></result>-->
+<!--        <result column="emall" property="user.emall"></result>-->
+<!--        <result column="password" property="user.password"></result>-->
+        <association property="user" javaType="user">
+            <id column="id" property="id"/>
+            <id column="username" property="username"/>
+            <id column="emall" property="emall"/>
+            <id column="password" property="password"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="orderMap">
+        SELECT *,o.id oid FROM test.orders o, test.sys_user u where o.uid=u.id;
+    </select>
+</mapper>

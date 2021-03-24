@@ -3,6 +3,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/spring_intercept" />
     <file type="web" url="file://$PROJECT_DIR$/spring_mvc" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_mybatis_anno" />
     <file type="web" url="file://$PROJECT_DIR$/spring_mytest" />
     <file type="web" url="file://$PROJECT_DIR$/spring_test" />
   </component>
@@ -19,6 +20,8 @@
         <option value="$PROJECT_DIR$/spring_intercept/pom.xml" />
         <option value="$PROJECT_DIR$/spring_test/pom.xml" />
         <option value="$PROJECT_DIR$/spring_mytest/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mybatis_multi/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mybatis_anno/pom.xml" />
       </list>
     </option>
   </component>

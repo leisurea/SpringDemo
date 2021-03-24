@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring_test" />
+        <module name="spring_mybatis_anno" />
         <module name="spring_tx_anno" />
         <module name="spring_intercept" />
         <module name="spring_tx" />
         <module name="spring_mvc" />
+        <module name="spring_mybatis_multi" />
         <module name="spring_mytest" />
         <module name="spring_aop" />
       </profile>
@@ -18,7 +20,10 @@
     <bytecodeTargetLevel>
       <module name="spring_aop" target="1.5" />
       <module name="spring_intercept" target="8" />
+      <module name="spring_mabatis_multi" target="8" />
       <module name="spring_mvc" target="8" />
+      <module name="spring_mybatis_anno" target="8" />
+      <module name="spring_mybatis_multi" target="8" />
       <module name="spring_mytest" target="1.5" />
       <module name="spring_test" target="1.5" />
       <module name="spring_tx" target="8" />
