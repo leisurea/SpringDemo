@@ -1,11 +1,14 @@
 package cn.kxgz.domain;
 
+import java.util.List;
+
 public class User {
     private int id;
     private String username;
     private String emall;
     private String password;
     private String phoneNum;
+    private List<Order> orderList;
 
     public int getId() {
         return id;
@@ -47,6 +50,14 @@ public class User {
         this.phoneNum = phoneNum;
     }
 
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -55,6 +66,7 @@ public class User {
                 ", emall='" + emall + '\'' +
                 ", password='" + password + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
+                ", orderList='" + orderList + '\'' +
                 '}';
     }
 }

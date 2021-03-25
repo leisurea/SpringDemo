@@ -2,6 +2,9 @@ package cn.kxgz.mapper;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Many;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -20,10 +23,28 @@ public interface UserMapper {
     @Delete("delete from sys_user where id=#{id}")
     void delete(int id);
 
-    @Select("select * from sys_user wher id=#{id}")
+    @Select("select * from sys_user where id=#{id}")
     User findById(int id);
 
     @Select("select * from sys_user")
     List<User> findAll();
+
+    @Select("select * from sys_user")
+    @Results({
+            @Result(id=true, column = "id", property = "id"),
+            @Result(column = "username", property = "username"),
+            @Result(column = "emall", property = "emall"),
+            @Result(column = "password", property = "password"),
+            @Result(column = "phoneNum", property = "phoneNum"),
+            @Result(
+                    property = "orderList",
+                    column = "id",
+                    javaType = List.class,
+                    many = @Many(select = "cn.kxgz.mapper.OrderMapper.findByUId")
+            )
+    })
+    List<User> findUserAndOrderAll();
+
+
 
 }
