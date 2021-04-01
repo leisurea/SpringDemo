@@ -14,6 +14,7 @@
         <module name="spring_mvc" />
         <module name="spring_mybatis_multi" />
         <module name="spring_mytest" />
+        <module name="spring_ssm" />
         <module name="spring_aop" />
       </profile>
     </annotationProcessing>
@@ -25,6 +26,7 @@
       <module name="spring_mybatis_anno" target="8" />
       <module name="spring_mybatis_multi" target="8" />
       <module name="spring_mytest" target="1.5" />
+      <module name="spring_ssm" target="8" />
       <module name="spring_test" target="1.5" />
       <module name="spring_tx" target="8" />
       <module name="spring_tx_anno" target="8" />

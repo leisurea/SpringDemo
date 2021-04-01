@@ -60,4 +60,11 @@ public class MyBatisTest {
             System.out.println(user);
         }
     }
+    @Test
+    public void findUserRoles(){
+        List<User> list = userMapper.findUserAndRoleAll();
+        for (User user : list) {
+            System.out.println(user);
+        }
+    }
 }

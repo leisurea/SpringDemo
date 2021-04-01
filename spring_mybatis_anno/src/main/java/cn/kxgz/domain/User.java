@@ -8,7 +8,7 @@ public class User {
     private String emall;
     private String password;
     private String phoneNum;
-    private List<Order> orderList;
+    private List<Role> roleList;
 
     public int getId() {
         return id;
@@ -50,12 +50,12 @@ public class User {
         this.phoneNum = phoneNum;
     }
 
-    public List<Order> getOrderList() {
-        return orderList;
+    public List<Role> getRoleList() {
+        return roleList;
     }
 
-    public void setOrderList(List<Order> orderList) {
-        this.orderList = orderList;
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
     }
 
     @Override
@@ -66,7 +66,7 @@ public class User {
                 ", emall='" + emall + '\'' +
                 ", password='" + password + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
-                ", orderList='" + orderList + '\'' +
+                ", roleList=" + roleList +
                 '}';
     }
 }

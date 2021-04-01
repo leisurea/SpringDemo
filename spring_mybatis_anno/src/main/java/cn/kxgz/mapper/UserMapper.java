@@ -45,6 +45,21 @@ public interface UserMapper {
     })
     List<User> findUserAndOrderAll();
 
+    @Select("select * from sys_user")
+    @Results({
+            @Result(id=true, column = "id", property = "id"),
+            @Result(column = "username", property = "username"),
+            @Result(column = "emall", property = "emall"),
+            @Result(column = "password", property = "password"),
+            @Result(column = "phoneNum", property = "phoneNum"),
+            @Result(
+                    property = "roleList",
+                    column = "id",
+                    javaType = List.class,
+                    many = @Many(select = "cn.kxgz.mapper.RoleMapper.findByRid")
+            )
+    })
+    List<User> findUserAndRoleAll();
 
 
 }

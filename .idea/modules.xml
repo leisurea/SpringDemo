@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/spring_mybatis_anno/spring_mybatis_anno.iml" filepath="$PROJECT_DIR$/spring_mybatis_anno/spring_mybatis_anno.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_mybatis_multi/spring_mybatis_multi.iml" filepath="$PROJECT_DIR$/spring_mybatis_multi/spring_mybatis_multi.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_mytest/spring_mytest.iml" filepath="$PROJECT_DIR$/spring_mytest/spring_mytest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_ssm/spring_ssm.iml" filepath="$PROJECT_DIR$/spring_ssm/spring_ssm.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_test/spring_test.iml" filepath="$PROJECT_DIR$/spring_test/spring_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_tx/spring_tx.iml" filepath="$PROJECT_DIR$/spring_tx/spring_tx.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_tx_anno/spring_tx_anno.iml" filepath="$PROJECT_DIR$/spring_tx_anno/spring_tx_anno.iml" />

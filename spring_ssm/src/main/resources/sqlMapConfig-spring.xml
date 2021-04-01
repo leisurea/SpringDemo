@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    引入外部文件-->
+<!--    <properties resource="jdbc.properties"></properties>-->
+
+<!--    自定义别名-->
+    <typeAliases>
+        <!--逐个定义-->
+<!--        <typeAlias type="cn.kxgz.domain.Account" alias="account"></typeAlias>-->
+        <!--扫包模式，包下类名首字母小写-->
+        <package name="cn.kxgz.domain" />
+    </typeAliases>
+
+<!--    数据源环境-->
+<!--    <environments default="development">-->
+<!--        <environment id="development">-->
+<!--            <transactionManager type="JDBC"></transactionManager>-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="${jdbc.driver}" />-->
+<!--                <property name="url" value="${jdbc.url}" />-->
+<!--                <property name="username" value="${jdbc.user}" />-->
+<!--                <property name="password" value="${jdbc.password}" />-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+
+<!--    加载映射文件-->
+<!--    <mappers>-->
+<!--&lt;!&ndash;        <mapper resource="cn/kxgz/mapper/UserMapper.xml"></mapper>&ndash;&gt;-->
+<!--        <package name="cn.kxgz.mapper" />-->
+<!--    </mappers>-->
+    
+</configuration>

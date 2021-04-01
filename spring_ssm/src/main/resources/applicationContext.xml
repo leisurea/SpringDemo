@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+">
+
+<!--    加载数据库配置文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+
+<!--    配置数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+<!--配置sqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+<!--        加载mybatis核心文件-->
+        <property name="configLocation" value="classpath:sqlMapConfig-spring.xml"/>
+    </bean>
+
+<!--    扫描mapper所在的包，创建实现类-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.kxgz.mapper"/>
+    </bean>
+
+
+<!--    组件扫描 扫描service和mapper-->
+    <context:component-scan base-package="cn.kxgz">
+<!--        排除controller的扫描-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+<!--声明事务控制-->
+<!--事务平台管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+<!--    配置事务增强-->
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <tx:method name="*" />
+        </tx:attributes>
+    </tx:advice>
+
+<!--    事务的AOP织入-->
+    <aop:config>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.kxgz.service.impl.*.*(..))"/>
+    </aop:config>
+
+<!--  目标对象  -->
+<!--    <bean id="target" class="cn.kxgz.spring.aop.Target"></bean>-->
+<!--  切面对象  -->
+<!--    <bean id="myAspect" class="cn.kxgz.spring.aop.MyAspect"></bean>-->
+
+    <!--  配置织入：告诉spring框架 哪些方法（切点）需要进行增强（前置。后置）  -->
+<!--    <aop:config>-->
+<!--&lt;!&ndash;   声明切面    &ndash;&gt;-->
+<!--        <aop:aspect ref="myAspect">-->
+<!--&lt;!&ndash;    切面：切点+通知        &ndash;&gt;-->
+<!--&lt;!&ndash;            <aop:before method="before" pointcut="execution(public void cn.kxgz.spring.aop.Target.save())"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            <aop:after-returning method="afterReturning" pointcut="execution(* cn.kxgz.spring.aop.*.*(..))"/>&ndash;&gt;-->
+<!--            <aop:around method="around" pointcut="execution(* cn.kxgz.spring.aop.*.*(..))"/>-->
+<!--            <aop:after-throwing method="afterThrowing" pointcut="execution(* cn.kxgz.spring.aop.*.*(..))"/>-->
+<!--            <aop:after method="after" pointcut="execution(* cn.kxgz.spring.aop.*.*(..))"/>-->
+
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+
+
+</beans>

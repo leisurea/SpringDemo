@@ -5,6 +5,7 @@
     <file type="web" url="file://$PROJECT_DIR$/spring_mvc" />
     <file type="web" url="file://$PROJECT_DIR$/spring_mybatis_anno" />
     <file type="web" url="file://$PROJECT_DIR$/spring_mytest" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_ssm" />
     <file type="web" url="file://$PROJECT_DIR$/spring_test" />
   </component>
   <component name="JavaScriptSettings">
@@ -22,6 +23,7 @@
         <option value="$PROJECT_DIR$/spring_mytest/pom.xml" />
         <option value="$PROJECT_DIR$/spring_mybatis_multi/pom.xml" />
         <option value="$PROJECT_DIR$/spring_mybatis_anno/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_ssm/pom.xml" />
       </list>
     </option>
   </component>
