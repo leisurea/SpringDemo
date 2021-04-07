@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -13,6 +14,7 @@
         <module name="spring_tx" />
         <module name="spring_mvc" />
         <module name="spring_mybatis_multi" />
+        <module name="springboot_test" />
         <module name="spring_mytest" />
         <module name="spring_ssm" />
         <module name="spring_aop" />
@@ -30,6 +32,12 @@
       <module name="spring_test" target="1.5" />
       <module name="spring_tx" target="8" />
       <module name="spring_tx_anno" target="8" />
+      <module name="springboot_test" target="8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springboot_test" options="-parameters" />
+    </option>
   </component>
 </project>
