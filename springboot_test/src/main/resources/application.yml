@@ -8,4 +8,38 @@ jdbc:
 #修改访问端口 org.springframework.boot.autoconfigure.web.ServerProperties
 #端口80为系统端口，可在访问时缺省
 server:
-  port: 8888
+  port: 8080
+  servlet:
+    encoding:
+      force: true
+      charset: UTF-8
+
+#日志记录级别
+logging:
+  level:
+    cn.kxgz: debug
+    com.springframework: info
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ssm2?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 12345678
+  redis:
+    host: localhost
+    port: 6379
+
+mybatis:
+#  实体类别名包路径
+  type-aliases-package: cn.kxgz.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  映射文件路径
+#  mapper-locations: classpath:mappers/*.xml
+#mybatis-plus:
+#  type-aliases-package: cn.kxgz.pojo
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+

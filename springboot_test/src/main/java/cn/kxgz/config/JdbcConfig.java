@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 //@PropertySource("classpath:application.yml")//第一种方法
 //@EnableConfigurationProperties(JdbcProperties.class)//第二种方法
 public class JdbcConfig {
@@ -52,9 +52,9 @@ public class JdbcConfig {
 //        return dataSource;
 //    }
 
-    @Bean
-    @ConfigurationProperties(prefix = "jdbc")//第三种方法
-    public DataSource dataSource() {
-        return new DruidDataSource();
-    }
+//    @Bean
+//    @ConfigurationProperties(prefix = "jdbc")//第三种方法
+//    public DataSource dataSource() {
+//        return new DruidDataSource();
+//    }
 }
